@@ -20,16 +20,31 @@
 				Height="350"
 				Margin="50">
 		<DataGrid.Columns>
-			<DataGridTextColumn Header="{Binding Path=DataContext.NamesHeader, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-								Binding="{Binding Name, Mode=OneWay}"
+			<DataGridTextColumn Binding="{Binding Name, Mode=OneWay}"
 								IsReadOnly="True"
-								Width="5*" />
-			<DataGridTextColumn Header="{Binding Path=DataContext.GradesHeader, ElementName=root}"
-								Binding="{Binding Grade, Mode=OneWay}"
+								Width="5*" >
+				<DataGridTextColumn.Header>
+					<TextBlock Text="{Binding Path=DataContext.NamesHeader, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+				</DataGridTextColumn.Header>
+			</DataGridTextColumn>
+			<DataGridTextColumn Binding="{Binding Grade, Mode=OneWay}"
 								IsReadOnly="True"
-								Width="1*" />
-			<DataGridTemplateColumn Header="{Binding $parent[Window].DataContext.PresenceHeader}"
-									Width="0.5*" >
+								Width="1*" >
+				<DataGridTextColumn.Header>
+					<TextBlock Text="{Binding Path=DataContext.GradesHeader, ElementName=root}"/>
+				</DataGridTextColumn.Header>
+			</DataGridTextColumn>
+			<DataGridTextColumn Binding="{Binding City, Mode=OneWay}"
+								IsReadOnly="True"
+								Width="1*" >
+				<DataGridTextColumn.Header>
+					<TextBlock Text="{Binding CitiesHeader}"/>
+				</DataGridTextColumn.Header>
+			</DataGridTextColumn>
+			<DataGridTemplateColumn Width="0.5*" >
+				<DataGridTemplateColumn.Header>
+					<TextBlock Text="{Binding $parent[Window].DataContext.PresenceHeader}"/>
+				</DataGridTemplateColumn.Header>
 				<DataGridTemplateColumn.CellTemplate>
 					<DataTemplate>
 						<CheckBox	IsChecked="{Binding Present, Mode=Default}"/>

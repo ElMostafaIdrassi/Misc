@@ -14,6 +14,9 @@ namespace AvaloniaApplicationTest.Models
 		public string Grade { get; set; }
 
 		[Reactive]
+		public string City { get; set; }
+
+		[Reactive]
 		public bool Present { get; set; }
 	}
 }
